@@ -5,4 +5,4 @@ More advanced topics about Go and it's environment.
 ### Topics
 
 - [Logging](logging)
-- [Literal Functions](func-literal)
+- [Literal Functions (lambdas)](func-literal)
