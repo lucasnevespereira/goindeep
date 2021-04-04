@@ -1,2 +1,3 @@
-2021/04/04 18:14:18 Hello there
-2021/04/04 18:14:36 Output here
+[INFO] 2021/04/04 18:27:06 main.go:5: This in an information
+[WARNING] 2021/04/04 18:27:06 main.go:6: Multiple modules are not imported
+[ERROR] 2021/04/04 18:27:06 main.go:7: Database handler failed
