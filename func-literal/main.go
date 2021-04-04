@@ -23,5 +23,14 @@ func main() {
 	})
 	fmt.Println(nums) // [5 15 35 55]
 
+	// Literal func can be assigned to a variable
+	biggestNum := func(a, b int) bool {
+		return nums[a] > nums[b]
+	}
+	sort.Slice(nums, biggestNum)
+	fmt.Println(nums) // [55 35 15 5]
+
+	// Note: This function uses closure
+	// Closure means that the func() inside of biggestNum acts on the variable nums that it's not inside of it's scope.
 
 }
