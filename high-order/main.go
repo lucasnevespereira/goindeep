@@ -20,6 +20,19 @@ func filter(students []student, f func(student) bool) []student {
 	return accepted
 }
 
+func genFilterFunc(schoolName string) func(student) bool {
+	if schoolName == "B" {
+		return func(s student) bool {
+			if s.grade >= 5 {
+				return true
+			}
+
+			return false
+		}
+	}
+	return func(s student) bool { return true }
+}
+
 
 func main() {
 	s1 := student {
@@ -42,5 +55,18 @@ func main() {
 		return false
 	})
 
-	fmt.Printf("Accepted Students: %v \n", f)
+	fmt.Printf("Accepted Students: %v \n", f) // [{Alice 8 4}]
+
+
+	// Create a function generator
+	// Usecase => Example, for school A use func X instead of func Y.
+	filterFuncForSchoolA := genFilterFunc("A")
+	f = filter(s, filterFuncForSchoolA)
+	fmt.Printf("Accepted Students in school A: %v \n", f) //  [{Bob 4 8} {Alice 8 4}]
+
+	// School B
+	filterFuncForSchoolB := genFilterFunc("B")
+	f = filter(s, filterFuncForSchoolB)
+	fmt.Printf("Accepted Students in school B: %v \n", f) //  [{Alice 8 4}]
+
 }
